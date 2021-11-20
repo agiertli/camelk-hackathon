@@ -11,7 +11,7 @@ This examples creates a message bridge between two AMQ 7 Brokers using Kamelet B
 ## Setup
 
 ### AMQ Brokers
-We need to start by deploying 2 (source and targe(or sink)) brokers
+We need to start by deploying 2 (source and target(or sink)) brokers
    - You can use `source-broker.yaml` and `sink-broker.yaml` which are custom resources to be used with the AMQ Broker operator
    - You need to adjust `namespace`, `adminPassword`, `adminUser` properties
    - Once done, simply execute `oc apply -f [source|sink]-broker.yaml`
@@ -21,7 +21,7 @@ We will be using Secret to store sensitive data - namely AMQ brokers admin crede
 Once done, simply execute the script via `./create-secrets.sh`
 
 ### Producer and Consumer
-To successfully test message bridge, we need to deploy producer and consumers so we can generate and consume some traffic.
+To successfully testthe  message bridge, we need to deploy producer and consumer so we can generate and consume some traffic.
 The producer is located in `AMQSourceProducer.java` and producer in `AMQTargetConsumer.java`
 No changes should be needed in these two files. If you did some customization in the brokers deployment (such as different broker name) you might need to adjust `source.properties` or `target.properties` accordingly.
 
@@ -73,7 +73,7 @@ camel.kamelet.jms-amqp-10-sink-custom.password: ${SINK_PASSWORD}
 We follow this convention:
 `camel.kamelet.<KAMELET_NAME>.<KAMELET_PROPERTY>`
 
-This will substitute the propertie to appropriate kamelet used in the binding.
+This will substitute the properties inside appropriate kamelet used in the binding.
 
 If all is set properly, you should finally see some traffic in the `amq-target-consumer` integration pod as well:
 ```
