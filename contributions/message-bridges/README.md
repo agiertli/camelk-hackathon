@@ -1,6 +1,6 @@
 # AMQ 7 Message Bridge
 
-This examples creates a message bridge between two AMQ 7 Brokers using Kamelet Binding.
+This examples creates a message bridge between two AMQ 7 Brokers using configuration & no-code approach by utilizing Kamelet Binding.
 
 ## Prerequisites
 - AMQ Broker Operator
@@ -50,6 +50,7 @@ oc apply -f sink-jms-kamelet.yaml
 ```
 
 ### Kamelet binding
+Kamelet binding allows us to connect two systems via simple configuration. In our case, we are connecting source broker to sink broker.
 Deploying kamelet binding is as simple as `oc apply -f message-bridge-binding.yaml`
 
 You might have to change the `remoteUri` to fit accordingly your configuration.
